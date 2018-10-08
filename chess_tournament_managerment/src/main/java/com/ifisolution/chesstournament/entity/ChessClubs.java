@@ -1,7 +1,7 @@
 package com.ifisolution.chesstournament.entity;
 // Generated Oct 5, 2018 11:22:52 PM by Hibernate Tools 5.2.11.Final
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -14,7 +14,7 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "chess_clubs", catalog = "chess_tournament")
-@JsonIgnoreProperties({"tournamentOrganizerses", "playerses"})
+//@JsonIgnoreProperties({"tournamentOrganizerses", "playerses"})
 
 public class ChessClubs implements java.io.Serializable {
 
@@ -23,8 +23,10 @@ public class ChessClubs implements java.io.Serializable {
 	private String clubAddress;
 	private String otherClubDetails;
 	private String organizerId;
-	private Set<TournamentOrganizers> tournamentOrganizerses = new HashSet<TournamentOrganizers>(0);
-	private Set<Players> playerses = new HashSet<Players>(0);
+    @JsonIgnore
+    private Set<TournamentOrganizers> tournamentOrganizerses = new HashSet<TournamentOrganizers>(0);
+    @JsonIgnore
+    private Set<Players> playerses = new HashSet<Players>(0);
 
 	public ChessClubs() {
 	}

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="0" databaseName="MYSQL" databaseProductName="MySQL" generation="2018-10-04 22:44:13">
+<table catalog="chess_tournament" databaseType="TABLE" javaBean="ActualTournamentSponsors" name="actual_tournament_sponsors" schema="">
+<column dbComment="" dbDefaultValue="" dbName="sponsor_id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="sponsorId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Sponsor id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="tournaments_id" dbNotNull="true" dbPosition="2" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="tournamentsId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Tournaments id" notNull="true" selected="true"/>
+<fk name="fk_actual_tournament_sponsors_list_of_sponsors1">
+<fkcol colname="sponsor_id" colref="sponsor_id" deferrable="7" deleterule="3" sequence="1" tablename="actual_tournament_sponsors" tableref="list_of_sponsors" updaterule="3"/>
+</fk>
+<fk name="fk_actual_tournament_sponsors_tournaments1">
+<fkcol colname="tournaments_id" colref="tournament_id" deferrable="7" deleterule="3" sequence="1" tablename="actual_tournament_sponsors" tableref="tournaments" updaterule="3"/>
+</fk>
+</table>
+<table catalog="chess_tournament" databaseType="TABLE" javaBean="ChessClubs" name="chess_clubs" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="club_id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="clubId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Club id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="club_name" dbNotNull="true" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="clubName" javaType="java.lang.String" jdbcTypeCode="12" label="Club name" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="club_address" dbNotNull="true" dbPosition="3" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="clubAddress" javaType="java.lang.String" jdbcTypeCode="12" label="Club address" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="other_club_details" dbNotNull="true" dbPosition="4" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="otherClubDetails" javaType="java.lang.String" jdbcTypeCode="12" label="Other club details" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="organizer_id" dbNotNull="true" dbPosition="5" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="organizerId" javaType="java.lang.String" jdbcTypeCode="12" label="Organizer id" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_players_chess_clubs1" id="LINK_FK_fk_players_chess_clubs1_I" inverseSideOf="LINK_FK_fk_players_chess_clubs1_O" javaName="listOfPlayers" javaType="java.util.List" joinTableName="" mappedBy="chessClubs" optional="" owningSide="false" sourceTableName="chess_clubs" targetEntity="Players" targetTableName="players" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_tournament_organizers_chess_clubs1" id="LINK_FK_fk_tournament_organizers_chess_clubs1_I" inverseSideOf="LINK_FK_fk_tournament_organizers_chess_clubs1_O" javaName="listOfTournamentOrganizers" javaType="java.util.List" joinTableName="" mappedBy="chessClubs" optional="" owningSide="false" sourceTableName="chess_clubs" targetEntity="TournamentOrganizers" targetTableName="tournament_organizers" used="true"/>
+</table>
+<table catalog="chess_tournament" databaseType="TABLE" javaBean="ListOfSponsors" name="list_of_sponsors" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="sponsor_id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="sponsorId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Sponsor id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="sponsor_name" dbNotNull="true" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="sponsorName" javaType="java.lang.String" jdbcTypeCode="12" label="Sponsor name" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="sponsor_phone" dbNotNull="true" dbPosition="3" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="sponsorPhone" javaType="java.lang.String" jdbcTypeCode="12" label="Sponsor phone" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="other_sponsor_details" dbNotNull="true" dbPosition="4" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="otherSponsorDetails" javaType="java.lang.String" jdbcTypeCode="12" label="Other sponsor details" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="ManyToMany" cascade="" fetch="DEFAULT" foreignKeyName="" id="LINK_JT_actual_tournament_sponsors_O" inverseSideOf="" javaName="listOfTournaments" javaType="java.util.List" joinTableName="actual_tournament_sponsors" mappedBy="" optional="" owningSide="true" sourceTableName="list_of_sponsors" targetEntity="Tournaments" targetTableName="tournaments" used="true">
+<joinTable name="actual_tournament_sponsors">
+<joinColumns>
+<joinColumn insertable="false" name="sponsor_id" nullable="true" referencedColumnName="sponsor_id" unique="false" updatable="false"/>
+</joinColumns>
+<inverseJoinColumns>
+<joinColumn insertable="false" name="tournaments_id" nullable="true" referencedColumnName="tournament_id" unique="false" updatable="false"/>
+</inverseJoinColumns>
+</joinTable>
+</link>
+</table>
+<table catalog="chess_tournament" databaseType="TABLE" javaBean="Matches" name="matches" schema="">
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="match_star_datetime" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="matchStarDatetime" javaType="java.util.Date" jdbcTypeCode="93" label="Match star datetime" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="result_code" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="resultCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Result code" notNull="true" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="match_end_datetime" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="matchEndDatetime" javaType="java.util.Date" jdbcTypeCode="93" label="Match end datetime" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="player_id_1" dbNotNull="true" dbPosition="4" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="playerId1" javaType="java.lang.Integer" jdbcTypeCode="4" label="Player id 1" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="tournament_id" dbNotNull="true" dbPosition="5" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="tournamentId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Tournament id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="player_id_2" dbNotNull="true" dbPosition="6" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="playerId2" javaType="java.lang.Integer" jdbcTypeCode="4" label="Player id 2" notNull="true" selected="true"/>
+<fk name="fk_matches_player_tournament_participation1">
+<fkcol colname="player_id_1" colref="player_id" deferrable="7" deleterule="3" sequence="1" tablename="matches" tableref="player_tournament_participation" updaterule="3"/>
+<fkcol colname="tournament_id" colref="tournament_id" deferrable="7" deleterule="3" sequence="2" tablename="matches" tableref="player_tournament_participation" updaterule="3"/>
+</fk>
+<fk name="fk_matches_ref_result_codes">
+<fkcol colname="result_code" colref="result_code" deferrable="7" deleterule="3" sequence="1" tablename="matches" tableref="ref_result_codes" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_matches_ref_result_codes" id="LINK_FK_fk_matches_ref_result_codes_O" inverseSideOf="" javaName="refResultCodes" javaType="RefResultCodes" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="matches" targetEntity="RefResultCodes" targetTableName="ref_result_codes" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="result_code" nullable="true" referencedColumnName="result_code" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_matches_player_tournament_participation1" id="LINK_FK_fk_matches_player_tournament_participation1_O" inverseSideOf="" javaName="playerTournamentParticipation" javaType="PlayerTournamentParticipation" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="matches" targetEntity="PlayerTournamentParticipation" targetTableName="player_tournament_participation" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="player_id_1" nullable="true" referencedColumnName="player_id" unique="false" updatable="false"/>
+<joinColumn insertable="false" name="tournament_id" nullable="true" referencedColumnName="tournament_id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="chess_tournament" databaseType="TABLE" javaBean="PlayerTournamentParticipation" name="player_tournament_participation" schema="">
+<column dbComment="" dbDefaultValue="" dbName="final_result" dbNotNull="true" dbPosition="1" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="finalResult" javaType="java.lang.String" jdbcTypeCode="12" label="Final result" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="player_id" dbNotNull="true" dbPosition="2" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="playerId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Player id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="tournament_id" dbNotNull="true" dbPosition="3" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="tournamentId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Tournament id" notNull="true" selected="true"/>
+<fk name="fk_player_tournament_participation_players1">
+<fkcol colname="player_id" colref="player_id" deferrable="7" deleterule="3" sequence="1" tablename="player_tournament_participation" tableref="players" updaterule="3"/>
+</fk>
+<fk name="fk_player_tournament_participation_tournaments1">
+<fkcol colname="tournament_id" colref="tournament_id" deferrable="7" deleterule="3" sequence="1" tablename="player_tournament_participation" tableref="tournaments" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_player_tournament_participation_tournaments1" id="LINK_FK_fk_player_tournament_participation_tournaments1_O" inverseSideOf="" javaName="tournaments" javaType="Tournaments" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="player_tournament_participation" targetEntity="Tournaments" targetTableName="tournaments" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="tournament_id" nullable="true" referencedColumnName="tournament_id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_matches_player_tournament_participation1" id="LINK_FK_fk_matches_player_tournament_participation1_I" inverseSideOf="LINK_FK_fk_matches_player_tournament_participation1_O" javaName="listOfMatches" javaType="java.util.List" joinTableName="" mappedBy="playerTournamentParticipation" optional="" owningSide="false" sourceTableName="player_tournament_participation" targetEntity="Matches" targetTableName="matches" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_player_tournament_participation_players1" id="LINK_FK_fk_player_tournament_participation_players1_O" inverseSideOf="" javaName="players" javaType="Players" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="player_tournament_participation" targetEntity="Players" targetTableName="players" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="player_id" nullable="true" referencedColumnName="player_id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="chess_tournament" databaseType="TABLE" javaBean="Players" name="players" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="player_id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="playerId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Player id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="club_id" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="clubId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Club id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="first_name" dbNotNull="true" dbPosition="3" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="firstName" javaType="java.lang.String" jdbcTypeCode="12" label="First name" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="last_name" dbNotNull="true" dbPosition="4" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="lastName" javaType="java.lang.String" jdbcTypeCode="12" label="Last name" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="address" dbNotNull="true" dbPosition="5" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="address" javaType="java.lang.String" jdbcTypeCode="12" label="Address" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="phone_number" dbNotNull="true" dbPosition="6" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="phoneNumber" javaType="java.lang.String" jdbcTypeCode="12" label="Phone number" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="email_address" dbNotNull="true" dbPosition="7" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="emailAddress" javaType="java.lang.String" jdbcTypeCode="12" label="Email address" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="other_player_details" dbNotNull="true" dbPosition="8" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="otherPlayerDetails" javaType="java.lang.String" jdbcTypeCode="12" label="Other player details" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ranking_code" dbNotNull="true" dbPosition="9" dbSize="10" dbTypeName="INT" inputType="number" javaName="rankingCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Ranking code" notNull="true" selected="true"/>
+<fk name="fk_players_chess_clubs1">
+<fkcol colname="club_id" colref="club_id" deferrable="7" deleterule="3" sequence="1" tablename="players" tableref="chess_clubs" updaterule="3"/>
+</fk>
+<fk name="fk_players_ref_ranking_codes1">
+<fkcol colname="ranking_code" colref="ranking_code" deferrable="7" deleterule="3" sequence="1" tablename="players" tableref="ref_ranking_codes" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_player_tournament_participation_players1" id="LINK_FK_fk_player_tournament_participation_players1_I" inverseSideOf="LINK_FK_fk_player_tournament_participation_players1_O" javaName="listOfPlayerTournamentParticipation" javaType="java.util.List" joinTableName="" mappedBy="players" optional="" owningSide="false" sourceTableName="players" targetEntity="PlayerTournamentParticipation" targetTableName="player_tournament_participation" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_players_ref_ranking_codes1" id="LINK_FK_fk_players_ref_ranking_codes1_O" inverseSideOf="" javaName="refRankingCodes" javaType="RefRankingCodes" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="players" targetEntity="RefRankingCodes" targetTableName="ref_ranking_codes" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="ranking_code" nullable="true" referencedColumnName="ranking_code" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_players_chess_clubs1" id="LINK_FK_fk_players_chess_clubs1_O" inverseSideOf="" javaName="chessClubs" javaType="ChessClubs" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="players" targetEntity="ChessClubs" targetTableName="chess_clubs" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="club_id" nullable="true" referencedColumnName="club_id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="chess_tournament" databaseType="TABLE" javaBean="RefRankingCodes" name="ref_ranking_codes" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="ranking_code" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="rankingCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Ranking code" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ranking_description" dbNotNull="true" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="rankingDescription" javaType="java.lang.String" jdbcTypeCode="12" label="Ranking description" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_players_ref_ranking_codes1" id="LINK_FK_fk_players_ref_ranking_codes1_I" inverseSideOf="LINK_FK_fk_players_ref_ranking_codes1_O" javaName="listOfPlayers" javaType="java.util.List" joinTableName="" mappedBy="refRankingCodes" optional="" owningSide="false" sourceTableName="ref_ranking_codes" targetEntity="Players" targetTableName="players" used="true"/>
+</table>
+<table catalog="chess_tournament" databaseType="TABLE" javaBean="RefResultCodes" name="ref_result_codes" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="result_code" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="resultCode" javaType="java.lang.Integer" jdbcTypeCode="4" label="Result code" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="result_description" dbNotNull="true" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="resultDescription" javaType="java.lang.String" jdbcTypeCode="12" label="Result description" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_matches_ref_result_codes" id="LINK_FK_fk_matches_ref_result_codes_I" inverseSideOf="LINK_FK_fk_matches_ref_result_codes_O" javaName="listOfMatches" javaType="java.util.List" joinTableName="" mappedBy="refResultCodes" optional="" owningSide="false" sourceTableName="ref_result_codes" targetEntity="Matches" targetTableName="matches" used="true"/>
+</table>
+<table catalog="chess_tournament" databaseType="TABLE" javaBean="TournamentOrganizers" name="tournament_organizers" schema="">
+<column dbComment="" dbDefaultValue="" dbName="club_id" dbNotNull="true" dbPosition="1" dbSize="10" dbTypeName="INT" inputType="number" javaName="clubId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Club id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="organizer_name" dbNotNull="true" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="organizerName" javaType="java.lang.String" jdbcTypeCode="12" label="Organizer name" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="organizer_details" dbNotNull="true" dbPosition="3" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="organizerDetails" javaType="java.lang.String" jdbcTypeCode="12" label="Organizer details" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="organizer_id" dbNotNull="true" dbPosition="4" dbPrimaryKey="true" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="organizerId" javaType="java.lang.String" jdbcTypeCode="12" label="Organizer id" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<fk name="fk_tournament_organizers_chess_clubs1">
+<fkcol colname="club_id" colref="club_id" deferrable="7" deleterule="3" sequence="1" tablename="tournament_organizers" tableref="chess_clubs" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_tournaments_tournament_organizers1" id="LINK_FK_fk_tournaments_tournament_organizers1_I" inverseSideOf="LINK_FK_fk_tournaments_tournament_organizers1_O" javaName="listOfTournaments" javaType="java.util.List" joinTableName="" mappedBy="tournamentOrganizers" optional="" owningSide="false" sourceTableName="tournament_organizers" targetEntity="Tournaments" targetTableName="tournaments" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_tournament_organizers_chess_clubs1" id="LINK_FK_fk_tournament_organizers_chess_clubs1_O" inverseSideOf="" javaName="chessClubs" javaType="ChessClubs" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="tournament_organizers" targetEntity="ChessClubs" targetTableName="chess_clubs" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="club_id" nullable="true" referencedColumnName="club_id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="chess_tournament" databaseType="TABLE" javaBean="Tournaments" name="tournaments" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="tournament_id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="tournamentId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Tournament id" notNull="true" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="tournament_start_date" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="DATE" inputType="date" javaName="tournamentStartDate" javaType="java.util.Date" jdbcTypeCode="91" label="Tournament start date" notNull="true" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="tournament_end_date" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="DATE" inputType="date" javaName="tournamentEndDate" javaType="java.util.Date" jdbcTypeCode="91" label="Tournament end date" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="tournament_name" dbNotNull="true" dbPosition="4" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="tournamentName" javaType="java.lang.String" jdbcTypeCode="12" label="Tournament name" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="tournament_details" dbNotNull="true" dbPosition="5" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="tournamentDetails" javaType="java.lang.String" jdbcTypeCode="12" label="Tournament details" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="organizer_id" dbNotNull="true" dbPosition="6" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="organizerId" javaType="java.lang.String" jdbcTypeCode="12" label="Organizer id" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<fk name="fk_tournaments_tournament_organizers1">
+<fkcol colname="organizer_id" colref="organizer_id" deferrable="7" deleterule="3" sequence="1" tablename="tournaments" tableref="tournament_organizers" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_tournaments_tournament_organizers1" id="LINK_FK_fk_tournaments_tournament_organizers1_O" inverseSideOf="" javaName="tournamentOrganizers" javaType="TournamentOrganizers" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="tournaments" targetEntity="TournamentOrganizers" targetTableName="tournament_organizers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="organizer_id" nullable="true" referencedColumnName="organizer_id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_player_tournament_participation_tournaments1" id="LINK_FK_fk_player_tournament_participation_tournaments1_I" inverseSideOf="LINK_FK_fk_player_tournament_participation_tournaments1_O" javaName="listOfPlayerTournamentParticipation" javaType="java.util.List" joinTableName="" mappedBy="tournaments" optional="" owningSide="false" sourceTableName="tournaments" targetEntity="PlayerTournamentParticipation" targetTableName="player_tournament_participation" used="true"/>
+<link cardinality="ManyToMany" cascade="" fetch="DEFAULT" foreignKeyName="" id="LINK_JT_actual_tournament_sponsors_I" inverseSideOf="LINK_JT_actual_tournament_sponsors_O" javaName="listOfListOfSponsors" javaType="java.util.List" joinTableName="actual_tournament_sponsors" mappedBy="listOfTournaments" optional="" owningSide="false" sourceTableName="tournaments" targetEntity="ListOfSponsors" targetTableName="list_of_sponsors" used="true"/>
+</table>
+</tableList>
+</root>
