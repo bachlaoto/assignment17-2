@@ -1,0 +1,38 @@
+<!--<div class="container">-->
+<!--<div class="col-md-6">-->
+<a routerLink="/add-club" class="btn btn-success pull-left">
+  <span class="glyphicon glyphicon-plus"></span> Add new club
+</a>
+<h1 class="text-center"> Club Details</h1>
+<div class="overflow-x:auto">
+  <table class="table">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Club name</th>
+      <th>Club address</th>
+      <th>Other clubDetails</th>
+      <th>Organizer Id</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let club of clubs; let i = index">
+      <td hidden>{{club.clubId}}</td>
+      <td>{{i+1}}</td>
+      <td>{{club.clubName}}</td>
+      <td>{{club.clubAddress}}</td>
+      <td>{{club.otherClubDetails}}</td>
+      <td>{{club.organizerId}}</td>
+      <!--<td>{{club.airlineCode}}</td>-->
+      <td>
+        <button class="btn btn-danger" (click)="deleteClub(club)"> Delete</button>
+        <button class="btn btn-danger" (click)="editClub(club)" style="margin-left: 20px;"> Edit
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!--</div>-->
+<!--</div>-->
+
