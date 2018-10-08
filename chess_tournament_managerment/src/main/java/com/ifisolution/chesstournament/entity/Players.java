@@ -1,7 +1,7 @@
 package com.ifisolution.chesstournament.entity;
 // Generated Oct 5, 2018 11:22:52 PM by Hibernate Tools 5.2.11.Final
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -14,7 +14,7 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "players", catalog = "chess_tournament")
-@JsonIgnoreProperties({"refRankingCodes", "chessClubs", "playerTournamentParticipations"})
+//@JsonIgnoreProperties({"refRankingCodes", "chessClubs", "playerTournamentParticipations"})
 
 public class Players implements java.io.Serializable {
 
@@ -27,6 +27,7 @@ public class Players implements java.io.Serializable {
 	private String phoneNumber;
 	private String emailAddress;
 	private String otherPlayerDetails;
+	@JsonIgnore
 	private Set<PlayerTournamentParticipation> playerTournamentParticipations = new HashSet<PlayerTournamentParticipation>(
 			0);
 
@@ -71,7 +72,7 @@ public class Players implements java.io.Serializable {
 		this.playerId = playerId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "club_id", nullable = false)
 	public ChessClubs getChessClubs() {
 		return this.chessClubs;
@@ -81,7 +82,7 @@ public class Players implements java.io.Serializable {
 		this.chessClubs = chessClubs;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ranking_code", nullable = false)
 	public RefRankingCodes getRefRankingCodes() {
 		return this.refRankingCodes;

@@ -1,0 +1,107 @@
+<div class="col-md-6">
+  <h2 class="text-center">Add Club</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="hidden" formControlName="clubId" placeholder="clubId" name="clubId" class="form-control">
+
+    </div>
+
+
+    <div class="form-group">
+      <label>First Name:</label>
+      <input formControlName="firstName" placeholder="firstName" name="firstName"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+        <div *ngIf="f.firstName.errors.required">Other club details is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Organizer Id:</label>
+      <input formControlName="lastName" placeholder="lastName" name="lastName" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+        <div *ngIf="f.lastName.errors.required">Other details is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Organizer Id:</label>
+      <input formControlName="address" placeholder="address" name="address" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+      <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+        <div *ngIf="f.address.errors.required">Other details is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Organizer Id:</label>
+      <input formControlName="phoneNumber" placeholder="phoneNumber" name="phoneNumber" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
+      <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+        <div *ngIf="f.phoneNumber.errors.required">Other details is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Organizer Id:</label>
+      <input formControlName="emailAddress" placeholder="emailAddress" name="emailAddress" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }">
+      <div *ngIf="submitted && f.emailAddress.errors" class="invalid-feedback">
+        <div *ngIf="f.emailAddress.errors.required">Other details is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Organizer Id:</label>
+      <input formControlName="otherPlayerDetails" placeholder="otherPlayerDetails" name="otherPlayerDetails"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.otherPlayerDetails.errors }">
+      <div *ngIf="submitted && f.otherPlayerDetails.errors" class="invalid-feedback">
+        <div *ngIf="f.otherPlayerDetails.errors.required">Other details is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Chess clubs:</label>
+      <input formControlName="chessClubs" placeholder="chessClubs" name="chessClubs" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.chessClubs.errors }">
+      <div *ngIf="submitted && f.chessClubs.errors" class="invalid-feedback">
+        <div *ngIf="f.chessClubs.errors.required">Club Name is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Ref Ranking Codes:</label>
+      <input formControlName="refRankingCodes" placeholder="refRankingCodes" name="refRankingCodes" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">
+      <div *ngIf="submitted && f.refRankingCodes.errors" class="invalid-feedback">
+        <div *ngIf="f.refRankingCodes.errors.required">Club Address is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Ref Ranking Codes:</label>
+      <input formControlName="refRankingCodes" placeholder="refRankingCodes" name="refRankingCodes" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">
+      <div *ngIf="submitted && f.refRankingCodes.errors" class="invalid-feedback">
+        <div *ngIf="f.refRankingCodes.errors.required">Airline Code is required</div>
+      </div>
+      <ul class="dropdown-menu">
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">CSS</a></li>
+        <li><a href="#">JavaScript</a></li>
+      </ul>
+    </div>
+
+    <div class="form-group">
+
+      <ul class="dropdown-menu">
+        <li *ngFor="let refRankingCode of refRankingCodes">
+          <a href="#">{{refRankingCode.rankingDescription}}</a></li>
+      </ul>
+    </div>
+    <button class="btn btn-success">Create</button>
+  </form>
+</div>

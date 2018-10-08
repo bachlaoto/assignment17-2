@@ -15,9 +15,9 @@ import {EditClubComponent} from './club/edit-club/edit-club.component';
 import {ListSponsorComponent} from './sponsor/list-sponsor/list-sponsor.component';
 import {AddSponsorComponent} from './sponsor/add-sponsor/add-sponsor.component';
 import {EditSponsorComponent} from './sponsor/edit-sponsor/edit-sponsor.component';
-// import {ListPlayerComponent} from './player/list-player/list-player.component';
-// import {AddPlayerComponent} from './player/add-player/add-player.component';
-// import {EditPlayerComponent} from './player/edit-player/edit-player.component';
+import {ListPlayerComponent} from './player/list-player/list-player.component';
+import {AddPlayerComponent} from './player/add-player/add-player.component';
+import {EditPlayerComponent} from './player/edit-player/edit-player.component';
 import {ActualTournamentSponsorService} from './service/actualTournamentSponsor.service';
 import {MatchService} from './service/match.service';
 import {PlayerService} from './service/player.service';
@@ -43,9 +43,9 @@ import {EditRefRankingCodeComponent} from './refrankingcode/edit-refrankingcode/
     ListSponsorComponent,
     AddSponsorComponent,
     EditSponsorComponent,
-    // ListPlayerComponent,
-    // AddPlayerComponent,
-    // EditPlayerComponent,
+    ListPlayerComponent,
+    AddPlayerComponent,
+    EditPlayerComponent,
     ListRefRankingCodeComponent,
     AddRefRankingCodeComponent,
     EditRefRankingCodeComponent

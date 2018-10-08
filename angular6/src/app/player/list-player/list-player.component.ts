@@ -31,7 +31,6 @@ export class ListPlayerComponent implements OnInit {
       .subscribe(data => {
         this.players = data;
       });
-
   }
 
   deletePlayer(player: Player): void {

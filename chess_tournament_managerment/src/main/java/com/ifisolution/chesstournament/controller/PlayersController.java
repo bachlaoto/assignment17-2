@@ -26,14 +26,31 @@ public class PlayersController {
 	@Autowired
 	private PlayersService playersService;
 
+//	@RequestMapping(value = "/",
+//			produces = { MediaType.APPLICATION_JSON_VALUE })
+//	public ResponseEntity findAll() {
+//		BaseResponse<List<Players>> baseResponse = new BaseResponse<>();
+//
+//		List<Players> list = playersService.findAll();
+//		//Set response data
+//		baseResponse.setData(list);
+//		//Prepare status data
+//		Status status = new Status();
+//		status.setCode(StatusData.SUCCESS.getCode());
+//		status.setMessage(StatusData.SUCCESS.getMessage());
+//		//Set all
+//		baseResponse.setStatus(status);
+//		baseResponse.setTimestamp(new Date());
+//
+//		return new ResponseEntity<>(baseResponse, HttpStatus.OK);
+//	}
+
+
 	@RequestMapping(value = "/",
 			produces = { MediaType.APPLICATION_JSON_VALUE })
 	public List<Players> findAll() {
-		List<Players> list = playersService.findAll();
-		return list;
+		return playersService.findAll();
 	}
-
-
 	@GetMapping("{playerId}")
 	public Players get(@PathVariable("playerId") Integer playerId) {
 		final Players players = playersService.getOne(playerId);

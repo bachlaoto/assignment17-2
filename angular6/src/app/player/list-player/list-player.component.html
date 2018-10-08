@@ -14,7 +14,9 @@
       <th>address</th>
       <th>phoneNumber</th>
       <th>emailAddress</th>
-      <th>otherPlayerDetails</th>
+      <th>Other player details</th>
+      <th>Chess clubs</th>
+      <th>Ranking codes</th>
     </thead>
     <tbody>
     <tr *ngFor="let player of players; let i = index">
@@ -26,6 +28,8 @@
       <td>{{player.phoneNumber}}</td>
       <td>{{player.emailAddress}}</td>
       <td>{{player.otherPlayerDetails}}</td>
+      <td>{{player.chessClubs.clubName}}</td>
+      <td>{{player.refRankingCodes.rankingDescription}}</td>
       <!--<td>{{player.airlineCode}}</td>-->
       <td>
         <button class="btn btn-danger" (click)="deletePlayer(player)"> Delete</button>
