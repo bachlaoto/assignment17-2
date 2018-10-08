@@ -1,0 +1,41 @@
+<div class="col-md-6">
+  <h2 class="text-center">Add Club</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="hidden" formControlName="rankingCode" placeholder="rankingCode" name="clubId" class="form-control">
+
+    </div>
+    <div class="form-group">
+      <label>Club name:</label>
+      <input formControlName="rankingDescription" placeholder="rankingDescription" name="rankingDescription"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.rankingDescription.errors }">
+      <div *ngIf="submitted && f.rankingDescription.errors" class="invalid-feedback">
+        <div *ngIf="f.rankingDescription.errors.required">ranking description is required</div>
+      </div>
+    </div>
+
+
+    <!--<div class="form-group">-->
+    <!--<label>Airline Code:</label>-->
+    <!--<input formControlName="airlineCode" placeholder="airlineCode" name="airlineCode" class="form-control"-->
+    <!--[ngClass]="{ 'is-invalid': submitted && f.airlineCode.errors }">-->
+    <!--<div *ngIf="submitted && f.airlineCode.errors" class="invalid-feedback">-->
+    <!--<div *ngIf="f.airlineCode.errors.required">Airline Code is required</div>-->
+    <!--</div>-->
+    <!--<ul class="dropdown-menu">-->
+    <!--<li><a href="#">HTML</a></li>-->
+    <!--<li><a href="#">CSS</a></li>-->
+    <!--<li><a href="#">JavaScript</a></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+
+    <!--<ul class="dropdown-menu">-->
+    <!--<li *ngFor="let airline of airlines"><a href="#">{{airline.id}}</a></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <button class="btn btn-success">Create</button>
+  </form>
+</div>

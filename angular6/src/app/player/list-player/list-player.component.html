@@ -1,0 +1,41 @@
+<!--<div class="container">-->
+<!--<div class="col-md-6">-->
+<a routerLink="/add-player" class="btn btn-success pull-left">
+  <span class="glyphicon glyphicon-plus"></span> Add new player
+</a>
+<h1 class="text-center"> Player Details</h1>
+<div class="overflow-x:auto">
+  <table class="table">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>first name</th>
+      <th>last name</th>
+      <th>address</th>
+      <th>phoneNumber</th>
+      <th>emailAddress</th>
+      <th>otherPlayerDetails</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let player of players; let i = index">
+      <td hidden>{{player.playerId}}</td>
+      <td>{{i+1}}</td>
+      <td>{{player.firstName}}</td>
+      <td>{{player.lastName}}</td>
+      <td>{{player.address}}</td>
+      <td>{{player.phoneNumber}}</td>
+      <td>{{player.emailAddress}}</td>
+      <td>{{player.otherPlayerDetails}}</td>
+      <!--<td>{{player.airlineCode}}</td>-->
+      <td>
+        <button class="btn btn-danger" (click)="deletePlayer(player)"> Delete</button>
+        <button class="btn btn-danger" (click)="editPlayer(player)" style="margin-left: 20px;"> Edit
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!--</div>-->
+<!--</div>-->
+

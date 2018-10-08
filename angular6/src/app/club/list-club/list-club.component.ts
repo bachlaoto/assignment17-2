@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Club} from '../../model/club.model';
 import {Router} from '@angular/router';
 import {ClubService} from '../../service/club.service';
@@ -43,7 +43,7 @@ export class ListClubComponent implements OnInit {
   editClub(club: Club): void {
     localStorage.removeItem('editClubId');
     localStorage.setItem('editClubId', club.clubId.toString());
-    this.router.navigate(['edit-club']);
+    this.router.navigate(['edit-player']);
   }
 
 

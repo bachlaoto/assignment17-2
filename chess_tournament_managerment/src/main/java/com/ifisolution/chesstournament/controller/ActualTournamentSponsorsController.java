@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", maxAge = 4200)
 @RequestMapping(value = "/actualTournamentSponsors", produces = "application/hal+json")
 public class ActualTournamentSponsorsController {
 

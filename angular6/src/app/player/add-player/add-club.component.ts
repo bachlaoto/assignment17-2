@@ -33,6 +33,7 @@ export class AddClubComponent implements OnInit {
       organizerId: ['', Validators.required],
     });
   }
+
   onSubmit() {
     this.submitted = true;
 
