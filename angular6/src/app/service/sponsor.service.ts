@@ -11,7 +11,7 @@ const httpOptions = {
 @Injectable()
 export class SponsorService {
 
-  private sponsorUrl = 'http://localhost:8080/chessSponsors';
+  private sponsorUrl = 'http://localhost:8080/listOfSponsors';
 
   constructor(private http: HttpClient) {
   }

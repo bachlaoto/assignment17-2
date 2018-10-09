@@ -1,3 +1,36 @@
-<p>
-  list-sponsor works!
-</p>
+<!--<div class="container">-->
+<!--<div class="col-md-6">-->
+<a routerLink="/add-refrankingcode" class="btn btn-success pull-left">
+  <span class="glyphicon glyphicon-plus"></span> Add new sponsor
+</a>
+<h1 class="text-center"> Sponsor Details</h1>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Ranking Description</th>
+      <th>Sponsor Phone</th>
+      <th>Other sponsor details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let sponsor of sponsors; let i = index">
+      <td hidden>{{sponsor.sponsorId}}</td>
+      <td>{{i+1}}</td>
+      <td>{{sponsor.sponsorName}}</td>
+      <td>{{sponsor.sponsorPhone}}</td>
+      <td>{{sponsor.otherSponsorDetails}}</td>
+      <!--<td>{{sponsor.airlineCode}}</td>-->
+      <td>
+        <button class="btn btn-danger" (click)="deleteSponsor(sponsor)"> Delete</button>
+        <button class="btn btn-danger" (click)="editSponsor(sponsor)" style="margin-left: 20px;"> Edit
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!--</div>-->
+<!--</div>-->
+

@@ -30,6 +30,12 @@ import {TournamentService} from './service/tournament.service';
 import {ListRefRankingCodeComponent} from './refrankingcode/list-refrankingcode/list-refrankingcode.component';
 import {AddRefRankingCodeComponent} from './refrankingcode/add-refrankingcode/add-refrankingcode.component';
 import {EditRefRankingCodeComponent} from './refrankingcode/edit-refrankingcode/edit-refrankingcode.component';
+import {ListRefResultCodeComponent} from './refResultCode/list-refresultcode/list-refresultcode.component';
+import {AddRefResultCodeComponent} from './refResultCode/add-refresultcode/add-refresultcode.component';
+import {EditRefResultCodeComponent} from './refResultCode/edit-refresultcode/edit-refresultcode.component';
+import {ListTournamentComponent} from './tournament/list-tournament/list-tournament.component';
+import {AddTournamentComponent} from './tournament/add-tournament/add-tournament.component';
+import {EditTournamentComponent} from './tournament/edit-tournament/edit-tournament.component';
 
 
 @NgModule({
@@ -48,7 +54,13 @@ import {EditRefRankingCodeComponent} from './refrankingcode/edit-refrankingcode/
     EditPlayerComponent,
     ListRefRankingCodeComponent,
     AddRefRankingCodeComponent,
-    EditRefRankingCodeComponent
+    EditRefRankingCodeComponent,
+    ListRefResultCodeComponent,
+    AddRefResultCodeComponent,
+    EditRefResultCodeComponent,
+    ListTournamentComponent,
+    AddTournamentComponent,
+    EditTournamentComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,8 @@ import {PlayerService} from '../../service/player.service';
 import {Player} from '../../model/player.model';
 import {RefRankingCode} from '../../model/refRankingCode.model';
 import {Club} from '../../model/club.model';
+import {ClubService} from "../../service/club.service";
+import {RefRankingCodeService} from "../../service/refRankingCode.service";
 
 @Component({
   selector: 'app-add-player',
@@ -20,24 +22,23 @@ export class AddPlayerComponent implements OnInit {
   refRankingCodes: RefRankingCode[];
   clubs: Club[];
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private playerService: PlayerService
-  ) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private playerService: PlayerService,
+              private refRankingCodeService: RefRankingCodeService, private clubService: ClubService) {
   }
 
-// , private refRankingCodeService: RefRankingCodeService,  private clubService: ClubService
   get f() {
     return this.addForm.controls;
   }
 
   ngOnInit() {
-    // this.refRankingCodeService.getRefRankingCode()
-    //   .subscribe(data => {
-    //     this.refRankingCodes = data;
-    //   });
-    // this.clubService.getClub()
-    //   .subscribe(data => {
-    //     this.clubs = data;
-    //   });
+    this.refRankingCodeService.getRefRankingCode()
+      .subscribe(data => {
+        this.refRankingCodes = data;
+      });
+    this.clubService.getClub()
+      .subscribe(data => {
+        this.clubs = data;
+      });
     this.addForm = this.formBuilder.group({
       playerId: 0,
       chessClubs: ['', Validators.required],

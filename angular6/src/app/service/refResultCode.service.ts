@@ -11,7 +11,7 @@ const httpOptions = {
 @Injectable()
 export class RefResultCodeService {
 
-  private refResultCodeUrl = 'http://localhost:8080/chessRefResultCodes';
+  private refResultCodeUrl = 'http://localhost:8080/refResultCodes';
 
   constructor(private http: HttpClient) {
   }
