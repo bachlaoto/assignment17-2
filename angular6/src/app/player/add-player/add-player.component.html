@@ -1,5 +1,5 @@
 <div class="col-md-6">
-  <h2 class="text-center">Add Club</h2>
+  <h2 class="text-center">Add Player</h2>
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <input type="hidden" formControlName="playerId" placeholder="playerId" name="playerId" class="form-control">
@@ -66,35 +66,35 @@
     <div class="form-group">
       <label>Chess clubs:</label>
 
-      <input formControlName="chessClubs" placeholder="chessClubs" name="chessClubs"
-             class="form-control"
-             [ngClass]="{ 'is-invalid': submitted && f.chessClubs.errors }">
-      <div *ngIf="submitted && f.chessClubs.errors" class="invalid-feedback">
-        <div *ngIf="f.chessClubs.errors.required">Other details is required</div>
-      </div>
-
-      <!--<select formControlName="chessClubs" placeholder="chessClubs" name="chessClubs"-->
+      <!--<input formControlName="chessClubs" placeholder="chessClubs" name="chessClubs"-->
       <!--class="form-control"-->
       <!--[ngClass]="{ 'is-invalid': submitted && f.chessClubs.errors }">-->
-      <!--<option *ngFor="let club of clubs">{{club.clubId}}</option>-->
-      <!--</select>-->
+      <!--<div *ngIf="submitted && f.chessClubs.errors" class="invalid-feedback">-->
+      <!--<div *ngIf="f.chessClubs.errors.required">Other details is required</div>-->
+      <!--</div>-->
+
+      <select formControlName="chessClubs" placeholder="chessClubs" name="chessClubs"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.chessClubs.errors }">
+        <option *ngFor="let club of clubs">{{club.clubId}}</option>
+      </select>
     </div>
 
 
     <div class="form-group">
       <label>Ref Ranking Codes:</label>
-      <input formControlName="refRankingCodes" placeholder="refRankingCodes" name="refRankingCodes"
-             class="form-control"
-             [ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">
-      <div *ngIf="submitted && f.refRankingCodes.errors" class="invalid-feedback">
-        <div *ngIf="f.refRankingCodes.errors.required">Other details is required</div>
-      </div>
-
-      <!--<select formControlName="refRankingCodes" placeholder="refRankingCodes" name="refRankingCodes"-->
+      <!--<input formControlName="refRankingCodes" placeholder="refRankingCodes" name="refRankingCodes"-->
       <!--class="form-control"-->
       <!--[ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">-->
-      <!--<option *ngFor="let refRankingCode of refRankingCodes">{{refRankingCode.rankingCode}}</option>-->
-      <!--</select>-->
+      <!--<div *ngIf="submitted && f.refRankingCodes.errors" class="invalid-feedback">-->
+      <!--<div *ngIf="f.refRankingCodes.errors.required">Other details is required</div>-->
+      <!--</div>-->
+
+      <select formControlName="refRankingCodes" placeholder="refRankingCodes" name="refRankingCodes"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">
+        <option *ngFor="let refRankingCode of refRankingCodes">{{refRankingCode.rankingCode}}</option>
+      </select>
     </div>
     <button class="btn btn-success">Create</button>
   </form>

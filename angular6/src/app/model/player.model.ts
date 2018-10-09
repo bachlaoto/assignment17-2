@@ -1,8 +1,8 @@
 export class Player {
 
   playerId: number;
-  chessClubs: number;
-  refRankingCodes: number;
+  chessClubs: any;
+  refRankingCodes: any;
   firstName: String;
   lastName: String;
   address: String;

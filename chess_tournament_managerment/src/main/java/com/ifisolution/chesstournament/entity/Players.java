@@ -72,7 +72,7 @@ public class Players implements java.io.Serializable {
 		this.playerId = playerId;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinColumn(name = "club_id", nullable = false)
 	public ChessClubs getChessClubs() {
 		return this.chessClubs;
@@ -82,7 +82,7 @@ public class Players implements java.io.Serializable {
 		this.chessClubs = chessClubs;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinColumn(name = "ranking_code", nullable = false)
 	public RefRankingCodes getRefRankingCodes() {
 		return this.refRankingCodes;
@@ -146,7 +146,7 @@ public class Players implements java.io.Serializable {
 		this.otherPlayerDetails = otherPlayerDetails;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "players")
+	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "players")
 	public Set<PlayerTournamentParticipation> getPlayerTournamentParticipations() {
 		return this.playerTournamentParticipations;
 	}

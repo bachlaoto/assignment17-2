@@ -105,7 +105,7 @@ public class ChessClubs implements java.io.Serializable {
 		this.tournamentOrganizerses = tournamentOrganizerses;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "chessClubs")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "chessClubs")
 	public Set<Players> getPlayerses() {
 		return this.playerses;
 	}
