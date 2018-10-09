@@ -54,11 +54,22 @@
       <!--<div *ngIf="f.refRankingCodes.errors.required">Other details is required</div>-->
       <!--</div>-->
 
+      <!--<select formControlName="tournamentOrganizer" placeholder="tournamentOrganizer" name="tournamentOrganizer"-->
+      <!--class="form-control"-->
+      <!--[ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">-->
+      <!--<option *ngFor="let tournamentOrganizer of tournamentOrganizers"-->
+      <!--[ngValue]="tournamentOrganizers">{{tournamentOrganizer.organizerName}}-->
+      <!--</option>-->
+      <!--</select>-->
+
       <select formControlName="tournamentOrganizer" placeholder="tournamentOrganizer" name="tournamentOrganizer"
               class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">
+        <option value="" disabled selected>Select ranking code</option>
+
         <option *ngFor="let tournamentOrganizer of tournamentOrganizers"
-                [ngValue]="tournamentOrganizers">{{tournamentOrganizer.organizerName}}
+                [ngValue]="tournamentOrganizer">{{tournamentOrganizer.organizerId}} -
+          {{tournamentOrganizer.organizerName}}
         </option>
       </select>
     </div>

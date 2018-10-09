@@ -119,7 +119,7 @@ public class Tournaments implements java.io.Serializable {
 	}
 
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "tournaments")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tournaments")
 	public Set<PlayerTournamentParticipation> getPlayerTournamentParticipations() {
 		return this.playerTournamentParticipations;
 	}

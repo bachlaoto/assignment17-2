@@ -17,8 +17,10 @@
       <!--</div>-->
 
       <select formControlName="chessClubs" placeholder="chessClubs" name="chessClubs"
-              class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.chessClubs.errors }">
+              class="form-control" [ngClass]="{ 'is-invalid': submitted && f.chessClubs.errors }">
+
+        <!--<option *ngFor="let club of clubs" [ngValue]="club.clubId" disabled selected>hepp0</option>-->
+
         <option *ngFor="let club of clubs" [ngValue]="club">{{club.clubId}}- {{club.clubName}}</option>
       </select>
     </div>

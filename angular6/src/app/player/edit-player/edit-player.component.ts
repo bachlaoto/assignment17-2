@@ -34,8 +34,8 @@ export class EditPlayerComponent implements OnInit {
     }
     this.editForm = this.formBuilder.group({
       playerId: [],
-      chessClubs: [''],
-      refRankingCodes: [''],
+      chessClubs: ['', Validators.required],
+      refRankingCodes: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       address: ['', Validators.required],

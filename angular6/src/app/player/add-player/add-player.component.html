@@ -79,6 +79,8 @@
       <select formControlName="chessClubs" placeholder="chessClubs" name="chessClubs"
               class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.chessClubs.errors }">
+        <option value="" disabled selected>Select club</option>
+
         <option *ngFor="let club of clubs" [ngValue]="club">{{club.clubId}}- {{club.clubName}}</option>
       </select>
     </div>
@@ -100,6 +102,8 @@
       <select formControlName="refRankingCodes" placeholder="refRankingCodes" name="refRankingCodes"
               class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">
+        <option value="" disabled selected>Select ranking code</option>
+
         <option *ngFor="let refRankingCode of refRankingCodes"
                 [ngValue]="refRankingCode">{{refRankingCode.rankingCode}} - {{refRankingCode.rankingDescription}}
         </option>
