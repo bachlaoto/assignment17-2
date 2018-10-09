@@ -4,6 +4,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {PlayerService} from '../../service/player.service';
 import {Player} from '../../model/player.model';
+import {Club} from '../../model/club.model';
+import {RefRankingCodeService} from '../../service/refRankingCode.service';
+import {ClubService} from '../../service/club.service';
+import {RefRankingCode} from '../../model/refRankingCode.model';
 
 @Component({
   selector: 'app-edit-player',
@@ -14,8 +18,11 @@ export class EditPlayerComponent implements OnInit {
 
   player: Player;
   editForm: FormGroup;
+  clubs: Club[];
+  refRankingCodes: RefRankingCode[];
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private playerService: PlayerService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private playerService: PlayerService,
+              private refRankingCodeService: RefRankingCodeService, private clubService: ClubService) {
   }
 
   ngOnInit() {
@@ -27,8 +34,8 @@ export class EditPlayerComponent implements OnInit {
     }
     this.editForm = this.formBuilder.group({
       playerId: [],
-      chessClubs: ['', Validators.required],
-      refRankingCodes: ['', Validators.required],
+      chessClubs: [''],
+      refRankingCodes: [''],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       address: ['', Validators.required],
@@ -40,6 +47,14 @@ export class EditPlayerComponent implements OnInit {
     this.playerService.getPlayerById(+playerId)
       .subscribe(data => {
         this.editForm.setValue(data);
+      });
+    this.clubService.getClub()
+      .subscribe(data => {
+        this.clubs = data;
+      });
+    this.refRankingCodeService.getRefRankingCode()
+      .subscribe(data => {
+        this.refRankingCodes = data;
       });
   }
 
