@@ -21,6 +21,9 @@ import {ListTournamentComponent} from './tournament/list-tournament/list-tournam
 import {AddOrganizerComponent} from './organizer/add-organizer/add-organizer.component';
 import {ListOrganizerComponent} from './organizer/list-organizer/list-organizer.component';
 import {EditOrganizerComponent} from './organizer/edit-organizer/edit-organizer.component';
+import {AddPlayerTournamentParticipationComponent} from './playertournamentparticipation/add-player-tournament-participation/add-playertournamentparticipation.component';
+import {ListPlayerTournamentParticipationComponent} from './playertournamentparticipation/list-player-tournament-participation/list-playertournamentparticipation.component';
+import {EditPlayerTournamentParticipationComponent} from './playertournamentparticipation/edit-player-tournament-participation/edit-playertournamentparticipation.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -46,6 +49,9 @@ const routes: Routes = [
   {path: 'add-organizer', component: AddOrganizerComponent},
   {path: 'list-organizer', component: ListOrganizerComponent},
   {path: 'edit-organizer', component: EditOrganizerComponent},
+  {path: 'add-playertournamentparticipation', component: AddPlayerTournamentParticipationComponent},
+  {path: 'list-playertournamentparticipation', component: ListPlayerTournamentParticipationComponent},
+  {path: 'edit-playertournamentparticipation', component: EditPlayerTournamentParticipationComponent},
 
 ];
 

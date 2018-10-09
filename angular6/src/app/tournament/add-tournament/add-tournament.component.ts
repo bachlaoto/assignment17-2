@@ -3,8 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {TournamentService} from '../../service/tournament.service';
 import {Tournament} from '../../model/tournament.model';
-import {TournamentOrganizer} from '../../model/organizer.model';
 import {OrganizerService} from '../../service/organizer.service';
+import {Organizer} from '../../model/organizer.model';
 
 @Component({
   selector: 'app-add-tournament',
@@ -17,7 +17,7 @@ export class AddTournamentComponent implements OnInit {
   addForm: FormGroup;
   submitted = false;
   tournament: Tournament[];
-  tournamentOrganizers: TournamentOrganizer[];
+  tournamentOrganizers: Organizer[];
 
   constructor(private formBuilder: FormBuilder, private router: Router, private tournamentService: TournamentService
     , private tournamentOrganizerService: OrganizerService) {
@@ -28,7 +28,7 @@ export class AddTournamentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tournamentOrganizerService.getTournamentOrganizer()
+    this.tournamentOrganizerService.getOrganizer()
       .subscribe(data => {
         this.tournamentOrganizers = data;
       });

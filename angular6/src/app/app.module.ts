@@ -40,8 +40,8 @@ import {ListOrganizerComponent} from './organizer/list-organizer/list-organizer.
 import {AddOrganizerComponent} from './organizer/add-organizer/add-organizer.component';
 import {EditOrganizerComponent} from './organizer/edit-organizer/edit-organizer.component';
 import {ListPlayerTournamentParticipationComponent} from './playertournamentparticipation/list-player-tournament-participation/list-playertournamentparticipation.component';
-import {AddPlayerTournamentParticipationComponent} from './playertournamentparticipation/add-player-tournament-participation/add-playertournamentparticipation.component';
 import {EditPlayerTournamentParticipationComponent} from './playertournamentparticipation/edit-player-tournament-participation/edit-playertournamentparticipation.component';
+import {AddPlayerTournamentParticipationComponent} from './playertournamentparticipation/add-player-tournament-participation/add-playertournamentparticipation.component';
 
 @NgModule({
   declarations: [
