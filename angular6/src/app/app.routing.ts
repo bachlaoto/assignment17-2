@@ -15,6 +15,9 @@ import {AddRefResultCodeComponent} from './refResultCode/add-refresultcode/add-r
 import {AddSponsorComponent} from './sponsor/add-sponsor/add-sponsor.component';
 import {ListSponsorComponent} from './sponsor/list-sponsor/list-sponsor.component';
 import {EditSponsorComponent} from './sponsor/edit-sponsor/edit-sponsor.component';
+import {AddTournamentComponent} from './tournament/add-tournament/add-tournament.component';
+import {EditTournamentComponent} from './tournament/edit-tournament/edit-tournament.component';
+import {ListTournamentComponent} from './tournament/list-tournament/list-tournament.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -34,7 +37,10 @@ const routes: Routes = [
   {path: 'add-sponsor', component: AddSponsorComponent},
   {path: 'list-sponsor', component: ListSponsorComponent},
   {path: 'edit-sponsor', component: EditSponsorComponent},
-  
+  {path: 'add-tournament', component: AddTournamentComponent},
+  {path: 'list-tournament', component: ListTournamentComponent},
+  {path: 'edit-tournament', component: EditTournamentComponent},
+
 ];
 
 export const routing = RouterModule.forRoot(routes);

@@ -1,0 +1,87 @@
+<div class="col-md-6">
+  <h2 class="text-center">Add Tournament</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="hidden" formControlName="tournamentId" placeholder="tournamentId" name="tournamentId"
+             class="form-control">
+
+    </div>
+    <div class="form-group">
+      <label>Tournament name:</label>
+      <input formControlName="tournamentName" placeholder="tournamentName" name="tournamentName" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.tournamentName.errors }">
+      <div *ngIf="submitted && f.tournamentName.errors" class="invalid-feedback">
+        <div *ngIf="f.tournamentName.errors.required">Tournament Name is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Tournament detail:</label>
+      <input formControlName="tournamentDetails" placeholder="tournamentDetails" name="tournamentDetails"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.tournamentDetails.errors }">
+      <div *ngIf="submitted && f.tournamentDetails.errors" class="invalid-feedback">
+        <div *ngIf="f.tournamentDetails.errors.required">Tournament Address is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Tournament start dates:</label>
+      <input formControlName="tournamentStartDate" placeholder="tournamentStartDate" name="tournamentStartDate"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.tournamentStartDate.errors }">
+      <div *ngIf="submitted && f.tournamentStartDate.errors" class="invalid-feedback">
+        <div *ngIf="f.tournamentStartDate.errors.required">Other tournament details is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Tournament End Date:</label>
+      <input formControlName="tournamentEndDate" placeholder="tournamentEndDate" name="tournamentEndDate"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.tournamentEndDate.errors }">
+      <div *ngIf="submitted && f.tournamentEndDate.errors" class="invalid-feedback">
+        <div *ngIf="f.tournamentEndDate.errors.required">Other details is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>tournamentOrganizer:</label>
+      <!--<input formControlName="refRankingCodes" placeholder="refRankingCodes" name="refRankingCodes"-->
+      <!--class="form-control"-->
+      <!--[ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">-->
+      <!--<div *ngIf="submitted && f.refRankingCodes.errors" class="invalid-feedback">-->
+      <!--<div *ngIf="f.refRankingCodes.errors.required">Other details is required</div>-->
+      <!--</div>-->
+
+      <select formControlName="tournamentOrganizer" placeholder="tournamentOrganizer" name="tournamentOrganizer"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">
+        <option *ngFor="let tournamentOrganizer of tournamentOrganizers"
+                [ngValue]="tournamentOrganizers">{{tournamentOrganizer.organizerName}}
+        </option>
+      </select>
+    </div>
+    <!--<div class="form-group">-->
+    <!--<label>Airline Code:</label>-->
+    <!--<input formControlName="airlineCode" placeholder="airlineCode" name="airlineCode" class="form-control"-->
+    <!--[ngClass]="{ 'is-invalid': submitted && f.airlineCode.errors }">-->
+    <!--<div *ngIf="submitted && f.airlineCode.errors" class="invalid-feedback">-->
+    <!--<div *ngIf="f.airlineCode.errors.required">Airline Code is required</div>-->
+    <!--</div>-->
+    <!--<ul class="dropdown-menu">-->
+    <!--<li><a href="#">HTML</a></li>-->
+    <!--<li><a href="#">CSS</a></li>-->
+    <!--<li><a href="#">JavaScript</a></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+
+    <!--<ul class="dropdown-menu">-->
+    <!--<li *ngFor="let airline of airlines"><a href="#">{{airline.id}}</a></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <button class="btn btn-success">Create</button>
+  </form>
+</div>

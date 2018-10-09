@@ -1,0 +1,49 @@
+<div class="col-md-6">
+  <h2 class="text-center">Edit tournament</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="hidden" formControlName="tournamentId" placeholder="tournamentId" name="tournamentId"
+             class="form-control">
+
+    </div>
+    <div class="form-group">
+      <label>Tournament name:</label>
+      <input formControlName="tournamentName" placeholder="tournamentName" name="tournamentName" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.tournamentName.errors }">
+      <div *ngIf="submitted && f.tournamentName.errors" class="invalid-feedback">
+        <div *ngIf="f.tournamentName.errors.required">Tournament Name is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Tournament detail:</label>
+      <input formControlName="tournamentDetails" placeholder="tournamentDetails" name="tournamentDetails"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.tournamentDetails.errors }">
+      <div *ngIf="submitted && f.tournamentDetails.errors" class="invalid-feedback">
+        <div *ngIf="f.tournamentDetails.errors.required">Tournament Address is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Tournament start dates:</label>
+      <input formControlName="tournamentStartDate" placeholder="tournamentStartDate" name="tournamentStartDate"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.tournamentStartDate.errors }">
+      <div *ngIf="submitted && f.tournamentStartDate.errors" class="invalid-feedback">
+        <div *ngIf="f.tournamentStartDate.errors.required">Other tournament details is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Tournament End Date:</label>
+      <input formControlName="tournamentEndDate" placeholder="tournamentEndDate" name="tournamentEndDate"
+             class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && f.tournamentEndDate.errors }">
+      <div *ngIf="submitted && f.tournamentEndDate.errors" class="invalid-feedback">
+        <div *ngIf="f.tournamentEndDate.errors.required">Other details is required</div>
+      </div>
+    </div>
+    <button class="btn btn-success">Create</button>
+  </form>
+</div>

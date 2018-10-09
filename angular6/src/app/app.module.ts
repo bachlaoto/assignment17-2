@@ -37,7 +37,6 @@ import {ListTournamentComponent} from './tournament/list-tournament/list-tournam
 import {AddTournamentComponent} from './tournament/add-tournament/add-tournament.component';
 import {EditTournamentComponent} from './tournament/edit-tournament/edit-tournament.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +59,7 @@ import {EditTournamentComponent} from './tournament/edit-tournament/edit-tournam
     EditRefResultCodeComponent,
     ListTournamentComponent,
     AddTournamentComponent,
-    EditTournamentComponent
+    EditTournamentComponent,
   ],
   imports: [
     BrowserModule,

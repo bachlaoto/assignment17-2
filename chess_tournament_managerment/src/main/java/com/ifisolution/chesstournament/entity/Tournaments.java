@@ -1,7 +1,7 @@
 package com.ifisolution.chesstournament.entity;
 // Generated Oct 5, 2018 11:22:52 PM by Hibernate Tools 5.2.11.Final
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,19 +15,22 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @Table(name = "tournaments", catalog = "chess_tournament")
-@JsonIgnoreProperties({"playerTournamentParticipations", "actualTournamentSponsors"})
+//@JsonIgnoreProperties({"playerTournamentParticipations", "actualTournamentSponsors"})
 
 public class Tournaments implements java.io.Serializable {
 
 	private Integer tournamentId;
-	private TournamentOrganizers tournamentOrganizers;
+    //    @JsonIgnore
+    private TournamentOrganizers tournamentOrganizers;
 	private Date tournamentStartDate;
 	private Date tournamentEndDate;
 	private String tournamentName;
 	private String tournamentDetails;
+    @JsonIgnore
     private Set<PlayerTournamentParticipation> playerTournamentParticipations = new HashSet<PlayerTournamentParticipation>(0);
+    @JsonIgnore
     private Set<ActualTournamentSponsors> actualTournamentSponsors = new HashSet<ActualTournamentSponsors>(
-			0);
+            0);
 
 	public Tournaments() {
 	}
@@ -67,7 +70,7 @@ public class Tournaments implements java.io.Serializable {
 		this.tournamentId = tournamentId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinColumn(name = "organizer_id", nullable = false)
 	public TournamentOrganizers getTournamentOrganizers() {
 		return this.tournamentOrganizers;
@@ -116,7 +119,7 @@ public class Tournaments implements java.io.Serializable {
 	}
 
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tournaments")
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "tournaments")
 	public Set<PlayerTournamentParticipation> getPlayerTournamentParticipations() {
 		return this.playerTournamentParticipations;
 	}
@@ -125,7 +128,7 @@ public class Tournaments implements java.io.Serializable {
 		this.playerTournamentParticipations = playerTournamentParticipations;
 	}
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "listOfSponsors")
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "listOfSponsors")
     public Set<ActualTournamentSponsors> getActualTournamentSponsors() {
         return actualTournamentSponsors;
     }

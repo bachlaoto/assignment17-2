@@ -44,7 +44,7 @@ export class AddClubComponent implements OnInit {
     alert('Add club succeful');
     this.clubService.createClub(this.addForm.value)
       .subscribe(data => {
-        this.router.navigate(['list-player']);
+        this.router.navigate(['list-club']);
       });
 
   }

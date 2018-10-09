@@ -11,7 +11,7 @@ const httpOptions = {
 @Injectable()
 export class TournamentOrganizerService {
 
-  private tournamentOrganizerUrl = 'http://localhost:8080/chessTournamentOrganizers';
+  private tournamentOrganizerUrl = 'http://localhost:8080/tournamentOrganizers';
 
   constructor(private http: HttpClient) {
   }

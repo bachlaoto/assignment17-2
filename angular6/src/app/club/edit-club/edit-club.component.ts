@@ -22,7 +22,7 @@ export class EditClubComponent implements OnInit {
     const clubId = localStorage.getItem('editClubId');
     if (!clubId) {
       alert('Invalid action.');
-      this.router.navigate(['list-player']);
+      this.router.navigate(['list-club']);
       return;
     }
     this.editForm = this.formBuilder.group({
@@ -43,7 +43,7 @@ export class EditClubComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['list-player']);
+          this.router.navigate(['list-club']);
         },
         error => {
           alert(error);

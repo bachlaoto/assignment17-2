@@ -5,18 +5,20 @@
 </a>
 <h1 class="text-center"> Player Details</h1>
 <div class="table-responsive">
-  <table class="table">
+  <table class="table table-striped">
     <thead>
     <tr>
       <th class="hidden">Id</th>
-      <th>first name</th>
-      <th>last name</th>
-      <th>address</th>
-      <th>phoneNumber</th>
-      <th>emailAddress</th>
+      <th>Lirst name</th>
+      <th>Last name</th>
+      <th>Address</th>
+      <th>Phone Number</th>
+      <th>Email Address</th>
       <th>Other player details</th>
       <th>Chess clubs</th>
       <th>Ranking codes</th>
+      <th></th>
+      <th></th>
     </thead>
     <tbody>
     <tr *ngFor="let player of players; let i = index">
@@ -28,12 +30,18 @@
       <td>{{player.phoneNumber}}</td>
       <td>{{player.emailAddress}}</td>
       <td>{{player.otherPlayerDetails}}</td>
-      <td>{{player.chessClubs.clubName}}</td>
+
+      <td>
+        {{player.chessClubs.clubName}}
+      </td>
+
       <td>{{player.refRankingCodes.rankingDescription}}</td>
       <!--<td>{{player.airlineCode}}</td>-->
       <td>
         <button class="btn btn-danger" (click)="deletePlayer(player)"> Delete</button>
-        <button class="btn btn-danger" (click)="editPlayer(player)" style="margin-left: 20px;"> Edit
+      </td>
+      <td>
+        <button class="btn btn-primary" (click)="editPlayer(player)" style="margin-left: 20px;"> Edit
         </button>
       </td>
     </tr>

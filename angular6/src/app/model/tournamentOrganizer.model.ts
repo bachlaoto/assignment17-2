@@ -1,7 +1,7 @@
 export class TournamentOrganizer {
 
   organizerId: number;
-  chessClubs: number;
+  chessClubs: any;
   organizerName: String;
   organizerDetails: String;
 }

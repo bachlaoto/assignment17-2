@@ -43,7 +43,7 @@ export class ListClubComponent implements OnInit {
   editClub(club: Club): void {
     localStorage.removeItem('editClubId');
     localStorage.setItem('editClubId', club.clubId.toString());
-    this.router.navigate(['edit-player']);
+    this.router.navigate(['edit-club']);
   }
 
 

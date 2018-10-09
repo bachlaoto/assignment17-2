@@ -52,6 +52,9 @@
         <div *ngIf="f.emailAddress.errors.required">Other details is required</div>
       </div>
     </div>
+    <input type="hidden" formControlName="chessClubs" placeholder="chessClubs" name="chessClubs" class="form-control">
+    <input type="hidden" formControlName="refRankingCodes" placeholder="refRankingCodes" name="refRankingCodes"
+           class="form-control">
 
     <div class="form-group">
       <label>Other Player Details:</label>
@@ -76,10 +79,14 @@
       <select formControlName="chessClubs" placeholder="chessClubs" name="chessClubs"
               class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.chessClubs.errors }">
-        <option *ngFor="let club of clubs">{{club.clubId}}</option>
+        <option *ngFor="let club of clubs" [ngValue]="club">{{club.clubId}}- {{club.clubName}}</option>
       </select>
     </div>
+    <div class="form-group">
+      <!--<label>Add new ranking code here:</label>-->
+      <label><a class="nav-link" href="#" routerLink='/add-club'>Add new Club here</a></label>
 
+    </div>
 
     <div class="form-group">
       <label>Ref Ranking Codes:</label>
@@ -93,8 +100,16 @@
       <select formControlName="refRankingCodes" placeholder="refRankingCodes" name="refRankingCodes"
               class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">
-        <option *ngFor="let refRankingCode of refRankingCodes">{{refRankingCode.rankingCode}}</option>
+        <option *ngFor="let refRankingCode of refRankingCodes"
+                [ngValue]="refRankingCode">{{refRankingCode.rankingCode}} - {{refRankingCode.rankingDescription}}
+        </option>
       </select>
+    </div>
+
+    <div class="form-group">
+      <!--<label>Add new ranking code here:</label>-->
+      <label><a class="nav-link" href="#" routerLink='/add-refrankingcode'>Add new ranking code here</a></label>
+
     </div>
     <button class="btn btn-success">Create</button>
   </form>

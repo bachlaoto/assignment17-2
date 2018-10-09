@@ -1,0 +1,11 @@
+span {
+  color: black;
+  font-size: 16px;
+  padding-right: 16px;
+}
+
+.logout {
+  float: left;
+  padding-left: 16px;
+
+}

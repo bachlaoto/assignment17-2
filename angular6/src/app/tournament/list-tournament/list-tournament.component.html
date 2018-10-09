@@ -1,0 +1,43 @@
+<!--<div class="container">-->
+<!--<div class="col-md-6">-->
+<a routerLink="/add-tournament" class="btn btn-success pull-left">
+  <span class="glyphicon glyphicon-plus"></span> Add new tournament
+</a>
+<h1 class="text-center"> Tournament Details</h1>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Tournament name</th>
+      <th>Tournament details</th>
+      <th>Tournament start date</th>
+      <th>Tournament end date</th>
+      <th>Tournament details</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tournament of tournaments; let i = index">
+      <td hidden>{{tournament.tournamentId}}</td>
+      <td>{{i+1}}</td>
+      <td>{{tournament.tournamentName}}</td>
+      <td>{{tournament.tournamentDetails}}</td>
+      <td>{{tournament.tournamentStartDate}}</td>
+      <td>{{tournament.tournamentEndDate}}</td>
+      <td>{{tournament.tournamentDetails}}</td>
+      <!--<td>{{tournament.airlineCode}}</td>-->
+      <td>
+        <button class="btn btn-danger" (click)="deleteTournament(tournament)"> Delete</button>
+      </td>
+      <td>
+        <button class="btn btn-primary" (click)="editTournament(tournament)" style="margin-left: 20px;"> Edit</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!--</div>-->
+<!--</div>-->
+

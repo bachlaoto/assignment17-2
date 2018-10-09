@@ -1,15 +1,17 @@
 <!--<div class="container">-->
 <!--<div class="col-md-6">-->
 <a routerLink="/add-refrankingcode" class="btn btn-success pull-left">
-  <span class="glyphicon glyphicon-plus"></span> Add new refRankingCode
+  <span class="glyphicon glyphicon-plus"></span> Add new Ranking code
 </a>
 <h1 class="text-center"> RefRankingCode Details</h1>
 <div class="table-responsive">
-  <table class="table">
+  <table class="table table-striped">
     <thead>
     <tr>
       <th class="hidden">Id</th>
       <th>Ranking Description</th>
+      <th></th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -20,7 +22,8 @@
       <!--<td>{{refRankingCode.airlineCode}}</td>-->
       <td>
         <button class="btn btn-danger" (click)="deleteRefRankingCode(refRankingCode)"> Delete</button>
-        <button class="btn btn-danger" (click)="editRefRankingCode(refRankingCode)" style="margin-left: 20px;"> Edit
+
+        <button class="btn btn-primary" (click)="editRefRankingCode(refRankingCode)" style="margin-left: 20px;"> Edit
         </button>
       </td>
     </tr>

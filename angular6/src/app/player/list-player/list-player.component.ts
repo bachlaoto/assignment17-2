@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Player} from '../../model/player.model';
 import {Router} from '@angular/router';
 import {PlayerService} from '../../service/player.service';
+import {Club} from '../../model/club.model';
+import {ClubService} from '../../service/club.service';
 
 @Component({
   selector: 'app-list-player',
@@ -10,8 +12,9 @@ import {PlayerService} from '../../service/player.service';
 })
 export class ListPlayerComponent implements OnInit {
   players: Player[];
+  clubs: Club[];
 
-  constructor(private router: Router, private playerService: PlayerService) {
+  constructor(private router: Router, private playerService: PlayerService, private clubService: ClubService) {
 
   }
 
@@ -30,6 +33,10 @@ export class ListPlayerComponent implements OnInit {
     this.playerService.getPlayer()
       .subscribe(data => {
         this.players = data;
+      });
+    this.clubService.getClub()
+      .subscribe(data => {
+        this.clubs = data;
       });
   }
 

@@ -29,8 +29,7 @@ public class TournamentsController {
 	@RequestMapping(value = "/",
 			produces = { MediaType.APPLICATION_JSON_VALUE })
 	public List<Tournaments> findAll() {
-		List<Tournaments> list = tournamentsService.findAll();
-		return list;
+		return tournamentsService.findAll();
 	}
 
 

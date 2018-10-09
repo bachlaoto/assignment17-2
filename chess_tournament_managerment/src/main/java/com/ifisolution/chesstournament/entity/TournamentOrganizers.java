@@ -1,6 +1,7 @@
 package com.ifisolution.chesstournament.entity;
 // Generated Oct 5, 2018 11:22:52 PM by Hibernate Tools 5.2.11.Final
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -19,10 +20,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class TournamentOrganizers implements java.io.Serializable {
 
 	private Integer organizerId;
-	private ChessClubs chessClubs;
+    @JsonIgnore
+    private ChessClubs chessClubs;
 	private String organizerName;
 	private String organizerDetails;
-	private Set<Tournaments> tournamentses = new HashSet<Tournaments>(0);
+    @JsonIgnore
+    private Set<Tournaments> tournamentses = new HashSet<Tournaments>(0);
 
 	public TournamentOrganizers() {
 	}

@@ -146,7 +146,7 @@ public class Players implements java.io.Serializable {
 		this.otherPlayerDetails = otherPlayerDetails;
 	}
 
-	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "players")
+	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "players")
 	public Set<PlayerTournamentParticipation> getPlayerTournamentParticipations() {
 		return this.playerTournamentParticipations;
 	}

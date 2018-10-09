@@ -1,0 +1,34 @@
+<!--<div class="container">-->
+<!--<div class="col-md-6">-->
+<a routerLink="/add-refrankingcode" class="btn btn-success pull-left">
+  <span class="glyphicon glyphicon-plus"></span> Add new refResultCode
+</a>
+<h1 class="text-center"> Result Code Details</h1>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Ranking Description</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let refResultCode of refResultCodes; let i = index">
+      <td hidden>{{refResultCode.resultCode}}</td>
+      <td>{{i+1}}</td>
+      <td>{{refResultCode.resultDescription}}</td>
+      <!--<td>{{refResultCode.airlineCode}}</td>-->
+      <td>
+        <button class="btn btn-danger" (click)="deleteRefResultCode(refResultCode)"> Delete</button>
+        <button class="btn btn-primary" (click)="editRefResultCode(refResultCode)" style="margin-left: 20px;"> Edit
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!--</div>-->
+<!--</div>-->
+
