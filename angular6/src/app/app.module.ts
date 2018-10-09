@@ -25,7 +25,7 @@ import {PlayerTournamentParticipationService} from './service/playerTournamentPa
 import {RefRankingCodeService} from './service/refRankingCode.service';
 import {RefResultCodeService} from './service/refResultCode.service';
 import {SponsorService} from './service/sponsor.service';
-import {TournamentOrganizerService} from './service/tournamentOrganizer.service';
+import {OrganizerService} from './service/organizer.service';
 import {TournamentService} from './service/tournament.service';
 import {ListRefRankingCodeComponent} from './refrankingcode/list-refrankingcode/list-refrankingcode.component';
 import {AddRefRankingCodeComponent} from './refrankingcode/add-refrankingcode/add-refrankingcode.component';
@@ -36,6 +36,12 @@ import {EditRefResultCodeComponent} from './refResultCode/edit-refresultcode/edi
 import {ListTournamentComponent} from './tournament/list-tournament/list-tournament.component';
 import {AddTournamentComponent} from './tournament/add-tournament/add-tournament.component';
 import {EditTournamentComponent} from './tournament/edit-tournament/edit-tournament.component';
+import {ListOrganizerComponent} from './organizer/list-organizer/list-organizer.component';
+import {AddOrganizerComponent} from './organizer/add-organizer/add-organizer.component';
+import {EditOrganizerComponent} from './organizer/edit-organizer/edit-organizer.component';
+import {ListPlayerTournamentParticipationComponent} from './playertournamentparticipation/list-player-tournament-participation/list-playertournamentparticipation.component';
+import {AddPlayerTournamentParticipationComponent} from './playertournamentparticipation/add-player-tournament-participation/add-playertournamentparticipation.component';
+import {EditPlayerTournamentParticipationComponent} from './playertournamentparticipation/edit-player-tournament-participation/edit-playertournamentparticipation.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +66,12 @@ import {EditTournamentComponent} from './tournament/edit-tournament/edit-tournam
     ListTournamentComponent,
     AddTournamentComponent,
     EditTournamentComponent,
+    ListOrganizerComponent,
+    AddOrganizerComponent,
+    EditOrganizerComponent,
+    ListPlayerTournamentParticipationComponent,
+    AddPlayerTournamentParticipationComponent,
+    EditPlayerTournamentParticipationComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +81,7 @@ import {EditTournamentComponent} from './tournament/edit-tournament/edit-tournam
   ],
   providers: [AuthenticationService, ClubService, ActualTournamentSponsorService, MatchService, PlayerService
     , PlayerTournamentParticipationService, RefRankingCodeService, RefResultCodeService, SponsorService
-    , TournamentOrganizerService, TournamentService],
+    , OrganizerService, TournamentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

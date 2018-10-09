@@ -20,7 +20,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class TournamentOrganizers implements java.io.Serializable {
 
 	private Integer organizerId;
-    @JsonIgnore
     private ChessClubs chessClubs;
 	private String organizerName;
 	private String organizerDetails;
@@ -56,7 +55,7 @@ public class TournamentOrganizers implements java.io.Serializable {
 		this.organizerId = organizerId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "club_id", nullable = false)
 	public ChessClubs getChessClubs() {
 		return this.chessClubs;

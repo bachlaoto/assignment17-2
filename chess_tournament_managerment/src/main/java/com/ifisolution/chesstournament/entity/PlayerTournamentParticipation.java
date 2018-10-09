@@ -1,6 +1,7 @@
 package com.ifisolution.chesstournament.entity;
 // Generated Oct 5, 2018 11:22:52 PM by Hibernate Tools 5.2.11.Final
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class PlayerTournamentParticipation implements java.io.Serializable {
 	private Players players;
 	private Tournaments tournaments;
 	private String finalResult;
+	@JsonIgnore
 	private Set<Matches> matcheses = new HashSet<Matches>(0);
 
 	public PlayerTournamentParticipation() {
@@ -54,7 +56,7 @@ public class PlayerTournamentParticipation implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "player_id", nullable = false, insertable = false, updatable = false)
 	public Players getPlayers() {
 		return this.players;
@@ -64,7 +66,7 @@ public class PlayerTournamentParticipation implements java.io.Serializable {
 		this.players = players;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "tournament_id", nullable = false, insertable = false, updatable = false)
 	public Tournaments getTournaments() {
 		return this.tournaments;

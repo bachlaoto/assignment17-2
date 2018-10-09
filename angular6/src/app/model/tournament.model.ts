@@ -1,7 +1,7 @@
 export class Tournament {
 
   tournamentId: number;
-  tournamentOrganizer: any;
+  tournamentOrganizers: any;
   tournamentStartDate: Date;
   tournamentEndDate: Date;
   tournamentName: String;

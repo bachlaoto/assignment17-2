@@ -44,6 +44,35 @@
         <div *ngIf="f.tournamentEndDate.errors.required">Other details is required</div>
       </div>
     </div>
+
+    <div class="form-group">
+      <label>tournamentOrganizer:</label>
+      <!--<input formControlName="refRankingCodes" placeholder="refRankingCodes" name="refRankingCodes"-->
+      <!--class="form-control"-->
+      <!--[ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">-->
+      <!--<div *ngIf="submitted && f.refRankingCodes.errors" class="invalid-feedback">-->
+      <!--<div *ngIf="f.refRankingCodes.errors.required">Other details is required</div>-->
+      <!--</div>-->
+
+      <!--<select formControlName="tournamentOrganizer" placeholder="tournamentOrganizer" name="tournamentOrganizer"-->
+      <!--class="form-control"-->
+      <!--[ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">-->
+      <!--<option *ngFor="let tournamentOrganizer of tournamentOrganizers"-->
+      <!--[ngValue]="tournamentOrganizers">{{tournamentOrganizer.organizerName}}-->
+      <!--</option>-->
+      <!--</select>-->
+
+      <select formControlName="tournamentOrganizers" placeholder="tournamentOrganizers" name="tournamentOrganizers"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.tournamentOrganizers.errors }">
+        <option value="" disabled selected>Select ranking code</option>
+
+        <option *ngFor="let tournamentOrganizer of tournamentOrganizers"
+                [ngValue]="tournamentOrganizer">{{tournamentOrganizer.organizerId}} -
+          {{tournamentOrganizer.organizerName}}
+        </option>
+      </select>
+    </div>
     <button class="btn btn-success">Create</button>
   </form>
 </div>

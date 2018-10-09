@@ -1,4 +1,4 @@
-export class TournamentOrganizer {
+export class Organizer {
 
   organizerId: number;
   chessClubs: any;

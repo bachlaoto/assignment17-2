@@ -4,6 +4,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {TournamentService} from '../../service/tournament.service';
 import {Tournament} from '../../model/tournament.model';
+import {TournamentOrganizer} from '../../model/organizer.model';
+import {OrganizerService} from '../../service/organizer.service';
 
 @Component({
   selector: 'app-edit-tournament',
@@ -14,8 +16,10 @@ export class EditTournamentComponent implements OnInit {
 
   tournament: Tournament;
   editForm: FormGroup;
+  tournamentOrganizers: TournamentOrganizer[];
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private tournamentService: TournamentService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private tournamentService: TournamentService
+    , private tournamentOrganizerService: OrganizerService) {
   }
 
   ngOnInit() {
@@ -25,6 +29,10 @@ export class EditTournamentComponent implements OnInit {
       this.router.navigate(['list-player']);
       return;
     }
+    this.tournamentOrganizerService.getTournamentOrganizer()
+      .subscribe(data => {
+        this.tournamentOrganizers = data;
+      });
     this.editForm = this.formBuilder.group({
       tournamentId: [],
       tournamentOrganizers: ['', Validators.required],
@@ -44,7 +52,7 @@ export class EditTournamentComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['list-player']);
+          this.router.navigate(['list-tournament']);
         },
         error => {
           alert(error);

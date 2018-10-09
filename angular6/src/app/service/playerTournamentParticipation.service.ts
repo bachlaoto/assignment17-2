@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {PlayerTournamentParticipation} from '../model/playerTournamentParticipation.model';
+import {PlayerTournamentParticipationId} from '../model/playerTournamentParticipationId.model';
 
 
 const httpOptions = {
@@ -22,7 +23,7 @@ export class PlayerTournamentParticipationService {
     return this.http.get<PlayerTournamentParticipation[]>(this.playerTournamentParticipationUrl + '/');
   }
 
-  public deletePlayerTournamentParticipation(id: number) {
+  public deletePlayerTournamentParticipation(id: PlayerTournamentParticipationId) {
     return this.http.delete(this.playerTournamentParticipationUrl + '/' + id);
   }
 

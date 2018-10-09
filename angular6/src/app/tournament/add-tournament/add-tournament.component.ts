@@ -3,8 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {TournamentService} from '../../service/tournament.service';
 import {Tournament} from '../../model/tournament.model';
-import {TournamentOrganizer} from '../../model/tournamentOrganizer.model';
-import {TournamentOrganizerService} from '../../service/tournamentOrganizer.service';
+import {TournamentOrganizer} from '../../model/organizer.model';
+import {OrganizerService} from '../../service/organizer.service';
 
 @Component({
   selector: 'app-add-tournament',
@@ -20,7 +20,7 @@ export class AddTournamentComponent implements OnInit {
   tournamentOrganizers: TournamentOrganizer[];
 
   constructor(private formBuilder: FormBuilder, private router: Router, private tournamentService: TournamentService
-    , private tournamentOrganizerService: TournamentOrganizerService) {
+    , private tournamentOrganizerService: OrganizerService) {
   }
 
   get f() {
@@ -34,7 +34,7 @@ export class AddTournamentComponent implements OnInit {
       });
     this.addForm = this.formBuilder.group({
       tournamentId: 0,
-      tournamentOrganizer: ['', Validators.required],
+      tournamentOrganizers: ['', Validators.required],
       tournamentStartDate: ['', Validators.required],
       tournamentEndDate: ['', Validators.required],
       tournamentName: ['', Validators.required],
@@ -53,7 +53,7 @@ export class AddTournamentComponent implements OnInit {
     alert('Add tournament succeful');
     this.tournamentService.createTournament(this.addForm.value)
       .subscribe(data => {
-        this.router.navigate(['list-player']);
+        this.router.navigate(['list-tournament']);
       });
 
   }

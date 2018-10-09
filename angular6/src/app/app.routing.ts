@@ -18,6 +18,9 @@ import {EditSponsorComponent} from './sponsor/edit-sponsor/edit-sponsor.componen
 import {AddTournamentComponent} from './tournament/add-tournament/add-tournament.component';
 import {EditTournamentComponent} from './tournament/edit-tournament/edit-tournament.component';
 import {ListTournamentComponent} from './tournament/list-tournament/list-tournament.component';
+import {AddOrganizerComponent} from './organizer/add-organizer/add-organizer.component';
+import {ListOrganizerComponent} from './organizer/list-organizer/list-organizer.component';
+import {EditOrganizerComponent} from './organizer/edit-organizer/edit-organizer.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -40,6 +43,9 @@ const routes: Routes = [
   {path: 'add-tournament', component: AddTournamentComponent},
   {path: 'list-tournament', component: ListTournamentComponent},
   {path: 'edit-tournament', component: EditTournamentComponent},
+  {path: 'add-organizer', component: AddOrganizerComponent},
+  {path: 'list-organizer', component: ListOrganizerComponent},
+  {path: 'edit-organizer', component: EditOrganizerComponent},
 
 ];
 

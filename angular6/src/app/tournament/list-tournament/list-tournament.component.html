@@ -14,6 +14,7 @@
       <th>Tournament start date</th>
       <th>Tournament end date</th>
       <th>Tournament details</th>
+      <th>Organizer name</th>
       <th></th>
       <th></th>
     </tr>
@@ -27,6 +28,7 @@
       <td>{{tournament.tournamentStartDate}}</td>
       <td>{{tournament.tournamentEndDate}}</td>
       <td>{{tournament.tournamentDetails}}</td>
+      <td>{{tournament.tournamentOrganizers.organizerName}}</td>
       <!--<td>{{tournament.airlineCode}}</td>-->
       <td>
         <button class="btn btn-danger" (click)="deleteTournament(tournament)"> Delete</button>

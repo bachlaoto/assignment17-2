@@ -62,9 +62,9 @@
       <!--</option>-->
       <!--</select>-->
 
-      <select formControlName="tournamentOrganizer" placeholder="tournamentOrganizer" name="tournamentOrganizer"
+      <select formControlName="tournamentOrganizers" placeholder="tournamentOrganizers" name="tournamentOrganizers"
               class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.refRankingCodes.errors }">
+              [ngClass]="{ 'is-invalid': submitted && f.tournamentOrganizers.errors }">
         <option value="" disabled selected>Select ranking code</option>
 
         <option *ngFor="let tournamentOrganizer of tournamentOrganizers"
