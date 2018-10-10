@@ -1,5 +1,9 @@
-export class ActualTournamentSponsor {
+import {Sponsor} from './sponsor.model';
+import {Tournament} from './tournament.model';
+import {ActualTournamentSponsorId} from './actualTournamentSponsorId.model';
 
-  sponsorId: number;
-  tournamentId: number;
+export class ActualTournamentSponsor {
+  id: ActualTournamentSponsorId;
+  sponsorId: Sponsor;
+  tournamentId: Tournament;
 }

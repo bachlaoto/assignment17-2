@@ -1,6 +1,7 @@
 package com.ifisolution.chesstournament.entity;
 // Generated Oct 5, 2018 11:22:52 PM by Hibernate Tools 5.2.11.Final
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -22,7 +23,8 @@ public class ListOfSponsors implements java.io.Serializable {
 	private String sponsorName;
 	private String sponsorPhone;
 	private String otherSponsorDetails;
-    private Set<ActualTournamentSponsors> actualTournamentSponsors = new HashSet<ActualTournamentSponsors>(0);
+	@JsonIgnore
+	private Set<ActualTournamentSponsors> actualTournamentSponsors = new HashSet<ActualTournamentSponsors>(0);
 
 	public ListOfSponsors() {
 	}

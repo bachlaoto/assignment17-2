@@ -42,6 +42,12 @@ import {EditOrganizerComponent} from './organizer/edit-organizer/edit-organizer.
 import {ListPlayerTournamentParticipationComponent} from './playertournamentparticipation/list-player-tournament-participation/list-playertournamentparticipation.component';
 import {EditPlayerTournamentParticipationComponent} from './playertournamentparticipation/edit-player-tournament-participation/edit-playertournamentparticipation.component';
 import {AddPlayerTournamentParticipationComponent} from './playertournamentparticipation/add-player-tournament-participation/add-playertournamentparticipation.component';
+import {ListMatchComponent} from './match/list-match/list-match.component';
+import {AddMatchComponent} from './match/add-match/add-match.component';
+import {EditMatchComponent} from './match/edit-match/edit-match.component';
+import {ListActualTournamentSponsorComponent} from './actualtournamentsponsor/list-actualTournamentSponsor/list-actualTournamentSponsor.component';
+import {AddActualTournamentSponsorComponent} from './actualtournamentsponsor/add-actualTournamentSponsor/add-actualTournamentSponsor.component';
+import {EditActualTournamentSponsorComponent} from './actualtournamentsponsor/edit-actualTournamentSponsor/edit-actualTournamentSponsor.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +78,12 @@ import {AddPlayerTournamentParticipationComponent} from './playertournamentparti
     ListPlayerTournamentParticipationComponent,
     AddPlayerTournamentParticipationComponent,
     EditPlayerTournamentParticipationComponent,
+    ListMatchComponent,
+    AddMatchComponent,
+    EditMatchComponent,
+    ListActualTournamentSponsorComponent,
+    AddActualTournamentSponsorComponent,
+    EditActualTournamentSponsorComponent,
   ],
   imports: [
     BrowserModule,

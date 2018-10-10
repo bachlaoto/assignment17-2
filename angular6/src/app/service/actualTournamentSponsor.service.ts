@@ -22,7 +22,7 @@ export class ActualTournamentSponsorService {
     return this.http.get<ActualTournamentSponsor[]>(this.actualTournamentSponsorUrl + '/');
   }
 
-  public deleteActualTournamentSponsor(id: number) {
+  public deleteActualTournamentSponsor(id: any) {
     return this.http.delete(this.actualTournamentSponsorUrl + '/' + id);
   }
 
@@ -30,7 +30,7 @@ export class ActualTournamentSponsorService {
     return this.http.post<ActualTournamentSponsor>(this.actualTournamentSponsorUrl, actualTournamentSponsor);
   }
 
-  public getActualTournamentSponsorById(id: number) {
+  public getActualTournamentSponsorById(id: any) {
     return this.http.get<ActualTournamentSponsor>(this.actualTournamentSponsorUrl + '/' + id);
   }
 

@@ -1,10 +1,10 @@
-import {PlayerTournamentParticipationId} from './playerTournamentParticipationId.model';
 import {Player} from './player.model';
 import {Tournament} from './tournament.model';
 
 export class PlayerTournamentParticipation {
 
-  id: PlayerTournamentParticipationId;
+  // id: PlayerTournamentParticipationId;
+  id: any;
   players: Player;
   tournaments: Tournament;
   finalResult: String;

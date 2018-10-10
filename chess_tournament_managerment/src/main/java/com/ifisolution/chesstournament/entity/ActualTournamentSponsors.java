@@ -34,7 +34,7 @@ public class ActualTournamentSponsors implements java.io.Serializable {
         this.id = id;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sponsor_id", nullable = false, insertable = false, updatable = false)
     public ListOfSponsors getListOfSponsors() {
         return this.listOfSponsors;
@@ -44,7 +44,7 @@ public class ActualTournamentSponsors implements java.io.Serializable {
         this.listOfSponsors = listOfSponsors;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "tournament_id", nullable = false, insertable = false, updatable = false)
     public Tournaments getTournaments() {
         return this.tournaments;

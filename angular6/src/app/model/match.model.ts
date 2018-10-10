@@ -1,8 +1,8 @@
+import {MatchId} from './matchId.model';
+
 export class Match {
-  playerId1: number;
-  tournamentId: number;
-  matchStarDatetime: Date;
-  playerId2: number;
+  id: MatchId;
+  playerTournamentParticipation: any;
   matchEndDatetime: Date;
-  refResultCodes: number;
+  refResultCodes: any;
 }

@@ -24,6 +24,12 @@ import {EditOrganizerComponent} from './organizer/edit-organizer/edit-organizer.
 import {AddPlayerTournamentParticipationComponent} from './playertournamentparticipation/add-player-tournament-participation/add-playertournamentparticipation.component';
 import {ListPlayerTournamentParticipationComponent} from './playertournamentparticipation/list-player-tournament-participation/list-playertournamentparticipation.component';
 import {EditPlayerTournamentParticipationComponent} from './playertournamentparticipation/edit-player-tournament-participation/edit-playertournamentparticipation.component';
+import {AddMatchComponent} from './match/add-match/add-match.component';
+import {ListMatchComponent} from './match/list-match/list-match.component';
+import {EditMatchComponent} from './match/edit-match/edit-match.component';
+import {AddActualTournamentSponsorComponent} from './actualtournamentsponsor/add-actualTournamentSponsor/add-actualTournamentSponsor.component';
+import {ListActualTournamentSponsorComponent} from './actualtournamentsponsor/list-actualTournamentSponsor/list-actualTournamentSponsor.component';
+import {EditActualTournamentSponsorComponent} from './actualtournamentsponsor/edit-actualTournamentSponsor/edit-actualTournamentSponsor.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -52,7 +58,12 @@ const routes: Routes = [
   {path: 'add-playertournamentparticipation', component: AddPlayerTournamentParticipationComponent},
   {path: 'list-playertournamentparticipation', component: ListPlayerTournamentParticipationComponent},
   {path: 'edit-playertournamentparticipation', component: EditPlayerTournamentParticipationComponent},
-
+  {path: 'add-match', component: AddMatchComponent},
+  {path: 'list-match', component: ListMatchComponent},
+  {path: 'edit-match', component: EditMatchComponent},
+  {path: 'add-actualtournamentsponsor', component: AddActualTournamentSponsorComponent},
+  {path: 'list-actualtournamentsponsor', component: ListActualTournamentSponsorComponent},
+  {path: 'edit-actualtournamentsponsor', component: EditActualTournamentSponsorComponent},
 ];
 
 export const routing = RouterModule.forRoot(routes);

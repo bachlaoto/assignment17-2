@@ -11,7 +11,7 @@ const httpOptions = {
 @Injectable()
 export class MatchService {
 
-  private matchUrl = 'http://localhost:8080/matchs';
+  private matchUrl = 'http://localhost:8080/matches';
 
   constructor(private http: HttpClient) {
   }
@@ -22,7 +22,7 @@ export class MatchService {
     return this.http.get<Match[]>(this.matchUrl + '/');
   }
 
-  public deleteMatch(id: number) {
+  public deleteMatch(id: any) {
     return this.http.delete(this.matchUrl + '/' + id);
   }
 
@@ -30,7 +30,7 @@ export class MatchService {
     return this.http.post<Match>(this.matchUrl, match);
   }
 
-  public getMatchById(id: number) {
+  public getMatchById(id: any) {
     return this.http.get<Match>(this.matchUrl + '/' + id);
   }
 
